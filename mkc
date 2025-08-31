@@ -1,0 +1,1250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scholars Link - Your Academic Success Partner</title>
+    <meta name="description" content="Expert academic writing, research proposals, dissertations, and tutoring services. 200+ experts, 24/7 support, 100% quality guaranteed.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            color: white;
+            font-size: 2em;
+            font-weight: bold;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 10px 15px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: white;
+            margin: 3px 0;
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="2" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>');
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-text {
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            font-weight: 700;
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-subtitle {
+            font-size: 1.3em;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            display: block;
+            color: #f39c12;
+        }
+
+        .stat-label {
+            font-size: 0.9em;
+            opacity: 0.8;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn-primary {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .btn-primary:hover {
+            background: white;
+            color: #667eea;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .btn-secondary {
+            background: #f39c12;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #e67e22;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .hero-form {
+            background: rgba(255,255,255,0.95);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .form-title {
+            color: #333;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #555;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e1e8ed;
+            border-radius: 10px;
+            font-size: 14px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .file-upload {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .file-upload input[type="file"] {
+            position: absolute;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+
+        .file-upload-label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            border: 2px dashed #667eea;
+            border-radius: 10px;
+            background: #f8f9ff;
+            color: #667eea;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .file-upload-label:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+            background: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3em;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2em;
+            color: #7f8c8d;
+            margin-bottom: 60px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        .service-icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .service-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .service-card p {
+            color: #7f8c8d;
+            line-height: 1.6;
+        }
+
+        /* Subjects Section */
+        .subjects {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .subjects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .subject-card {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 30px 25px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .subject-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .subject-card .icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .subject-card h4 {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+
+        .subject-card p {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+
+        /* Why Choose Us Section */
+        .why-choose {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .feature-card {
+            background: rgba(255,255,255,0.1);
+            padding: 40px 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            background: rgba(255,255,255,0.15);
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+            display: block;
+            color: #f39c12;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            background: #f8f9fa;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .contact-info {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f8f9ff;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: #667eea;
+            color: white;
+            transform: translateX(10px);
+        }
+
+        .contact-icon {
+            font-size: 2em;
+            color: #667eea;
+        }
+
+        .contact-item:hover .contact-icon {
+            color: white;
+        }
+
+        .contact-details h4 {
+            margin-bottom: 5px;
+        }
+
+        .contact-details p,
+        .contact-details a {
+            color: #7f8c8d;
+            text-decoration: none;
+        }
+
+        .contact-item:hover .contact-details p,
+        .contact-item:hover .contact-details a {
+            color: white;
+        }
+
+        .upload-section {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        /* Footer */
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 20px;
+            color: #f39c12;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #bdc3c7;
+            text-decoration: none;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .footer-section a:hover {
+            color: #f39c12;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: #34495e;
+            color: white;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: #f39c12;
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #34495e;
+            padding-top: 20px;
+            text-align: center;
+            color: #bdc3c7;
+        }
+
+        /* WhatsApp Float Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+        }
+
+        .whatsapp-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            color: white;
+            border-radius: 50%;
+            text-decoration: none;
+            font-size: 1.5em;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4); }
+            50% { box-shadow: 0 4px 25px rgba(37, 211, 102, 0.6); }
+            100% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4); }
+        }
+
+        /* Success Message */
+        .success-message {
+            display: none;
+            background: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+            border: 1px solid #c3e6cb;
+        }
+
+        .error-message {
+            display: none;
+            background: #f8d7da;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+            border: 1px solid #f5c6cb;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 2.5em;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .section-title {
+                font-size: 2em;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">📚 Scholars Link</a>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#subjects">Subjects</a></li>
+                <li><a href="#why-choose">Why Choose Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>🌟 Welcome to Scholars Link!</h1>
+                <p class="hero-subtitle">Your Academic Excellence Partner - Professional Research, Writing & Tutoring Services</p>
+                
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">200+</span>
+                        <span class="stat-label">Expert Tutors</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">60</span>
+                        <span class="stat-label">PhD Scholars</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">Support</span>
+                    </div>
+                </div>
+
+                <div class="cta-buttons">
+                    <a href="#contact" class="btn btn-primary">Get Free Quote 🔍</a>
+                    <a href="https://wa.me/919182153603" class="btn btn-secondary">Chat on WhatsApp 💬</a>
+                </div>
+            </div>
+            
+            <div class="hero-form">
+                <h3 class="form-title">Get Your Free Quote</h3>
+                <form id="quoteForm">
+                    <div class="form-group">
+                        <label>Full Name *</label>
+                        <input type="text" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address *</label>
+                        <input type="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Subject/Course *</label>
+                        <select name="subject" required>
+                            <option value="">Select Subject</option>
+                            <option value="Mathematics">Mathematics</option>
+                            <option value="Science">Science</option>
+                            <option value="Computer Science">Computer Science</option>
+                            <option value="Business">Business</option>
+                            <option value="History">History</option>
+                            <option value="Writing">Essay Writing</option>
+                            <option value="Research">Research Paper</option>
+                            <option value="Dissertation">Dissertation</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Service Required</label>
+                        <select name="service">
+                            <option value="Research Proposal">Research Proposal</option>
+                            <option value="Essay Writing">Essay Writing</option>
+                            <option value="Dissertation">Dissertation</option>
+                            <option value="Presentation">Presentation</option>
+                            <option value="Assignment">Assignment Help</option>
+                            <option value="Research Paper">Research Paper</option>
+                            <option value="Tutoring">Online Tutoring</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Project Details</label>
+                        <textarea name="details" rows="4" placeholder="Describe your requirements..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">
+                        Get Free Quote 🚀
+                    </button>
+                </form>
+                <div id="quoteSuccess" class="success-message">
+                    Thank you! We'll send you a personalized quote within 24 hours.
+                </div>
+                <div id="quoteError" class="error-message">
+                    Something went wrong. Please try again or contact us directly.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <p class="section-subtitle">Comprehensive academic support tailored to your success</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <span class="service-icon">🔍</span>
+                    <h3>Research Proposals</h3>
+                    <p>Crafted with precision by our expert researchers. Get professionally written research proposals that meet academic standards and guidelines.</p>
+                </div>
+                
+                <div class="service-card">
+                    <span class="service-icon">💻</span>
+                    <h3>Online Essay Writing</h3>
+                    <p>High-quality essays and dissertation writing services. Our skilled writers deliver original, well-researched academic content.</p>
+                </div>
+                
+                <div class="service-card">
+                    <span class="service-icon">📜</span>
+                    <h3>Fast-Thesis</h3>
+                    <p>Your academic milestone, accelerated. Get professional thesis writing support to complete your degree requirements efficiently.</p>
+                </div>
+                
+                <div class="service-card">
+                    <span class="service-icon">🎤</span>
+                    <h3>Dynamic Presentations</h3>
+                    <p>Bringing your ideas to life with compelling presentations. Professional slide design and content creation services.</p>
+                </div>
+                
+                <div class="service-card">
+                    <span class="service-icon">📚</span>
+                    <h3>Academic Assignment Aid</h3>
+                    <p>Your success, our mission. Comprehensive assignment help across all academic levels and subjects.</p>
+                </div>
+                
+                <div class="service-card">
+                    <span class="service-icon">📰</span>
+                    <h3>Research Paper Publications</h3>
+                    <p>Swift research paper publications to elevate your research game. Professional writing and publication support.</p>
+                </div>
+                
+                <div class="service-card">
+                    <span class="service-icon">🎓</span>
+                    <h3>24/7 Expert Tutors</h3>
+                    <p>Guiding you across all domains. Round-the-clock access to qualified tutors for personalized learning support.</p>
+                </div>
+                
+                <div class="service-card">
+                    <span class="service-icon">⚡</span>
+                    <h3>Quick Turnaround</h3>
+                    <p>Fast delivery without compromising quality. Get your academic work completed within your deadlines.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Subjects Section -->
+    <section id="subjects" class="subjects">
+        <div class="container">
+            <h2 class="section-title">Subjects We Cover</h2>
+            <p class="section-subtitle">Comprehensive expertise across diverse academic fields</p>
+            
+            <div class="subjects-grid">
+                <div class="subject-card">
+                    <span class="icon">➕</span>
+                    <h4>Mathematics</h4>
+                    <p>Algebra to Trigonometry</p>
+                </div>
+                
+                <div class="subject-card">
+                    <span class="icon">🔬</span>
+                    <h4>Science</h4>
+                    <p>Agriculture, Biology, Chemistry & More</p>
+                </div>
+                
+                <div class="subject-card">
+                    <span class="icon">✍️</span>
+                    <h4>Writing</h4>
+                    <p>Essays, Papers & Business Communication</p>
+                </div>
+                
+                <div class="subject-card">
+                    <span class="icon">💻</span>
+                    <h4>Computer Science</h4>
+                    <p>Programming & Code Development</p>
+                </div>
+                
+                <div class="subject-card">
+                    <span class="icon">📜</span>
+                    <h4>History & Society</h4>
+                    <p>Unraveling the Past</p>
+                </div>
+                
+                <div class="subject-card">
+                    <span class="icon">💰</span>
+                    <h4>Business & Economics</h4>
+                    <p>Business, Accounting & Finance</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section id="why-choose" class="why-choose">
+        <div class="container">
+            <h2 class="section-title">Why Choose Scholars Link?</h2>
+            <p class="section-subtitle">Your journey to academic excellence starts here! 🚀</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <span class="feature-icon">💯</span>
+                    <h3>100% Quality</h3>
+                    <p>Guaranteed high-quality work with plagiarism-free content. Every project undergoes thorough quality checks.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <span class="feature-icon">🔒</span>
+                    <h3>Complete Privacy</h3>
+                    <p>Your information and academic work remain completely confidential. We respect your privacy and academic integrity.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <span class="feature-icon">👨‍🎓</span>
+                    <h3>Expert Team</h3>
+                    <p>200+ experts across various fields and 60 PhD scholars ready to assist with your academic needs.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <span class="feature-icon">🆓</span>
+                    <h3>Free Features</h3>
+                    <p>Bibliography, title page, and plagiarism reports included at no extra cost with every order.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <span class="feature-icon">⏰</span>
+                    <h3>24/7 Support</h3>
+                    <p>Round-the-clock customer support and expert guidance whenever you need assistance.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <span class="feature-icon">🎯</span>
+                    <h3>Personalized Service</h3>
+                    <p>Get matched with a personalized tutor who understands your specific academic requirements.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <p class="section-subtitle">Get in touch for personalized academic assistance</p>
+            
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3 style="margin-bottom: 30px; color: #2c3e50;">Get In Touch</h3>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <div class="contact-details">
+                            <h4>Email Address</h4>
+                            <a href="mailto:manoj91005@gmail.com">manoj91005@gmail.com</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📱</div>
+                        <div class="contact-details">
+                            <h4>Phone Number</h4>
+                            <a href="tel:+919182153603">+91 91821 53603</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">💬</div>
+                        <div class="contact-details">
+                            <h4>WhatsApp</h4>
+                            <a href="https://wa.me/919182153603">Chat with us instantly</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">⏰</div>
+                        <div class="contact-details">
+                            <h4>Availability</h4>
+                            <p>24/7 Support Available</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="upload-section">
+                    <h3 style="margin-bottom: 30px; color: #2c3e50;">Submit Your Assignment</h3>
+                    <form id="uploadForm" action="https://formspree.io/f/xwkgkorw" method="POST" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label>Student Name *</label>
+                            <input type="text" name="student_name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Email Address *</label>
+                            <input type="email" name="student_email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Course/Subject *</label>
+                            <input type="text" name="course" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Assignment Details</label>
+                            <textarea name="assignment_details" rows="4" placeholder="Describe your assignment requirements, deadline, formatting requirements, etc."></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Upload Assignment Files</label>
+                            <div class="file-upload">
+                                <input type="file" name="assignment_files" multiple accept=".pdf,.doc,.docx,.txt,.jpg,.png">
+                                <div class="file-upload-label">
+                                    📎 Click to upload files or drag and drop
+                                </div>
+                            </div>
+                            <small style="color: #666; margin-top: 5px; display: block;">Supported formats: PDF, Word, Text, Images</small>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">
+                            Submit Assignment 📤
+                        </button>
+                    </form>
+                    
+                    <div id="uploadSuccess" class="success-message">
+                        Assignment submitted successfully! We'll review it and get back to you within 24 hours.
+                    </div>
+                    <div id="uploadError" class="error-message">
+                        Failed to submit. Please try again or email us directly at manoj91005@gmail.com
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>📚 Scholars Link</h3>
+                    <p>Your trusted partner for academic excellence. We provide comprehensive educational support with 200+ experts and 60 PhD scholars.</p>
+                    <div class="social-links">
+                        <a href="mailto:manoj91005@gmail.com" class="social-link" title="Email">📧</a>
+                        <a href="https://wa.me/919182153603" class="social-link" title="WhatsApp">💬</a>
+                        <a href="tel:+919182153603" class="social-link" title="Phone">📱</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Our Services</h3>
+                    <a href="#services">Research Proposals</a>
+                    <a href="#services">Essay Writing</a>
+                    <a href="#services">Dissertation Help</a>
+                    <a href="#services">Assignment Assistance</a>
+                    <a href="#services">Online Tutoring</a>
+                    <a href="#services">Research Papers</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Subjects</h3>
+                    <a href="#subjects">Mathematics</a>
+                    <a href="#subjects">Science</a>
+                    <a href="#subjects">Computer Science</a>
+                    <a href="#subjects">Business</a>
+                    <a href="#subjects">History</a>
+                    <a href="#subjects">Writing</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <a href="mailto:manoj91005@gmail.com">manoj91005@gmail.com</a>
+                    <a href="tel:+919182153603">+91 91821 53603</a>
+                    <a href="https://wa.me/919182153603">WhatsApp Chat</a>
+                    <p>Available 24/7 for academic support</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Scholars Link. All rights reserved. | 100% Quality & Privacy Guaranteed</p>
+                <p style="margin-top: 10px; font-size: 0.9em; opacity: 0.8;">
+                    🌟 Free Features: Bibliography, Title Page, Plagiarism Report 🌟
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <div class="whatsapp-float">
+        <a href="https://wa.me/919182153603?text=Hi%20Scholars%20Link,%20I%20need%20help%20with%20my%20academic%20work" class="whatsapp-btn" title="Chat on WhatsApp">
+            💬
+        </a>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('show');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Quote form submission
+        document.getElementById('quoteForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Simulate form submission
+            setTimeout(() => {
+                document.getElementById('quoteSuccess').style.display = 'block';
+                document.getElementById('quoteError').style.display = 'none';
+                this.reset();
+                
+                // Hide success message after 5 seconds
+                setTimeout(() => {
+                    document.getElementById('quoteSuccess').style.display = 'none';
+                }, 5000);
+            }, 1000);
+        });
+
+        // Upload form submission with Formspree
+        document.getElementById('uploadForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            
+            fetch('https://formspree.io/f/xwkgkorw', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    document.getElementById('uploadSuccess').style.display = 'block';
+                    document.getElementById('uploadError').style.display = 'none';
+                    this.reset();
+                    
+                    // Reset file upload label
+                    document.querySelector('.file-upload-label').textContent = '📎 Click to upload files or drag and drop';
+                    
+                    // Hide success message after 5 seconds
+                    setTimeout(() => {
+                        document.getElementById('uploadSuccess').style.display = 'none';
+                    }, 5000);
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            }).catch(error => {
+                document.getElementById('uploadError').style.display = 'block';
+                document.getElementById('uploadSuccess').style.display = 'none';
+                console.error('Error:', error);
+            });
+        });
+
+        // File upload enhancement
+        document.querySelector('input[type="file"]').addEventListener('change', function() {
+            const label = document.querySelector('.file-upload-label');
+            const fileCount = this.files.length;
+            
+            if (fileCount > 0) {
+                label.innerHTML = `📎 ${fileCount} file(s) selected`;
+                label.style.background = '#d4edda';
+                label.style.color = '#155724';
+            } else {
+                label.innerHTML = '📎 Click to upload files or drag and drop';
+                label.style.background = '#f8f9ff';
+                label.style.color = '#667eea';
+            }
+        });
+
+        // Drag and drop functionality
+        const fileUpload = document.querySelector('.file-upload');
+        const fileInput = document.querySelector('input[type="file"]');
+        const fileLabel = document.querySelector('.file-upload-label');
+
+        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+            fileUpload.addEventListener(eventName, preventDefaults, false);
+        });
+
+        function preventDefaults(e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+
+        ['dragenter', 'dragover'].forEach(eventName => {
+            fileUpload.addEventListener(eventName, highlight, false);
+        });
+
+        ['dragleave', 'drop'].forEach(eventName => {
+            fileUpload.addEventListener(eventName, unhighlight, false);
+        });
+
+        function highlight(e) {
+            fileLabel.style.background = '#667eea';
+            fileLabel.style.color = 'white';
+            fileLabel.innerHTML = '📎 Drop files here';
+        }
+
+        function unhighlight(e) {
+            fileLabel.style.background = '#f8f9ff';
+            fileLabel.style.color = '#667eea';
+            fileLabel.innerHTML = '📎 Click to upload files or drag and drop';
+        }
+
+        fileUpload.addEventListener('drop', handleDrop, false);
+
+        function handleDrop(e) {
+            const dt = e.dataTransfer;
+            const files = dt.files;
+            fileInput.files = files;
+            
+            if (files.length > 0) {
+                fileLabel.innerHTML = `📎 ${files.length} file(s) selected`;
+                fileLabel.style.background = '#d4edda';
+                fileLabel.style.color = '#155724';
+            }
+        }
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.style.background = 'rgba(102, 126, 234, 0.95)';
+                navbar.style.backdropFilter = 'blur(10px)';
+            } else {
+                navbar.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+                navbar.style.backdropFilter = 'none';
+            }
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and sections
+        document.querySelectorAll('.service-card, .subject-card, .feature-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
